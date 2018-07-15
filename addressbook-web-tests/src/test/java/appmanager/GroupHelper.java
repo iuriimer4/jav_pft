@@ -30,6 +30,8 @@ public class GroupHelper extends HelperBase {
 
   public void deleteSelectedGroups() {
     click(By.name("delete"));
+
+
   }
 
   public void selectGroup() {
@@ -40,8 +42,19 @@ public class GroupHelper extends HelperBase {
     click(By.name("edit"));
   }
 
-  public void submitGroupModofocation() {
+  public void submitGroupModification() {
     click(By.name("update"));
 
+  }
+
+  public void createGroup(GroupData group ) {
+    initGroupCreation();
+    fillGroupForm(group);
+    submitGroupCreation();
+    returnToGroupPage();
+  }
+
+  public boolean isThereGroup() {
+    return isElementPresent(By.name("selected[]"));
   }
 }
